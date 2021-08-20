@@ -11,7 +11,7 @@ func TestRakutenApi( t *testing.T ){
 	a := RakutenAffiliateAccount{
 		ApplicationID: "YOUR APPLICATION ID",
 		AffiliateID: "YOUR AFFILIATE ID",
-		Status: 1,
+		Status: SearchEnabled,
 	}
 	api, _ := NewRakutenAPI(a)
 
