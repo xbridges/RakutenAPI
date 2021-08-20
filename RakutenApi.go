@@ -14,8 +14,8 @@ const (
 )
 
 const (
-	SearchEnabled int = iota
-	SearchDisabled
+	SearchDisabled int = iota
+	SearchEnabled
 )
 
 type RakutenAPI struct{
