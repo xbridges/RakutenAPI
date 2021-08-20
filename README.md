@@ -1,9 +1,8 @@
 # RakutenAPI
 for Rakuten affiliate easy search.
 ```
-  a := RakutenAffiliateAccount{
+	a := RakutenAffiliateAccount{
 		ApplicationID: "YOUR APPLICATION ID",
-		AffiliateID: "YOUR AFFILIATE ID",
 	}
 	api, _ := NewRakutenAPI(a)
 
