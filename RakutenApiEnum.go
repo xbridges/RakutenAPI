@@ -62,7 +62,7 @@ var (
     	// ranking
     	"age", "sex", "period",
     	// search
-    	"keyword", "shopCode", "itemCode", "genreId", 
+    	"keyword", "shopCode", "itemCode", 
     	"tagId", "hits", "sort", "minPrice", "maxPrice", 
     	"availability", "field", "imageFlag", "orFlag", 
     	"NGKeyword", "purchaseType", "shipOverseasFlag", 
