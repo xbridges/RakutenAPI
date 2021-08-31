@@ -40,5 +40,20 @@ func TestRakutenApi( t *testing.T ){
 	rep := ItemSearchResponse{}
 	json.Unmarshal(resp, &rep)
 
-	fmt.Printf("\n\n\n%+v\n", rep)	
+	fmt.Printf("\n\n\n%+v\n", rep)
+
+	params = map[string]string{}
+	params[Format.String()] = "json"
+	params[Page.String()] = "1"
+	params[Keyword.String()] = "東京"
+
+	resp, err = api.GetTravelKeywordSearch(params)
+	if err != nil {
+		t.Fatal(err)
+	}
+	reptrv := TravelKeywordSearchResponse{}
+	json.Unmarshal(resp, &reptrv)
+
+	fmt.Printf("\n\n\n%+v\n", reptrv)	
+
 }

@@ -9,8 +9,9 @@ import(
 )
 
 const (
-	RankingURL = "https://app.rakuten.co.jp/services/api/IchibaItem/Ranking/20170628"
-	SearchURL  = "https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706"
+	ItemRankingURL   = "https://app.rakuten.co.jp/services/api/IchibaItem/Ranking/20170628"
+	ItemSearchURL    = "https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706"
+	TravelKeyWordURL = "https://app.rakuten.co.jp/services/api/Travel/KeywordHotelSearch/20170426"
 )
 
 const (
@@ -78,7 +79,7 @@ func (api *RakutenAPI) GetRaktenRunking(params map[string]string) ([]byte, error
 		return nil, errors.New("Search disabled")
 	}
 	query := buildQuery(api, params)
-	uri := fmt.Sprintf("%s?%s", RankingURL, query)
+	uri := fmt.Sprintf("%s?%s", ItemRankingURL, query)
 	// fmt.Printf("%s\n", uri)
 
 	return accessRakutenAPI(uri)
@@ -90,8 +91,20 @@ func (api *RakutenAPI) GetItemSearch(params map[string]string) ([]byte, error) {
 		return nil, errors.New("Search disabled")
 	}
 	query := buildQuery(api, params)
-	uri := fmt.Sprintf("%s?%s", SearchURL, query)
+	uri := fmt.Sprintf("%s?%s", ItemSearchURL, query)
 	// fmt.Printf("%s\n", uri)
+
+	return accessRakutenAPI(uri)
+}
+
+func (api *RakutenAPI) GetTravelKeywordSearch(params map[string]string) ([]byte, error) {
+
+	if api.Status != SearchEnabled {
+		return nil, errors.New("TravelSearch disabled")
+	}
+	query := buildQuery(api, params)
+	uri := fmt.Sprintf("%s?%s", TravelKeyWordURL, query)
+	fmt.Printf("%s\n", uri)
 
 	return accessRakutenAPI(uri)
 }
